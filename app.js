@@ -376,9 +376,9 @@ class App {
 
 startRun(){
   this.sfx.click();
-  this.setScene("play");     // go to play FIRST (this clears old state)
-  this.nextQuestion(true);   // then load the first question
-  this.render();             // force paint
+  this.setScene("play");     // clears old UI state
+  this.nextQuestion(true);   // loads first question AFTER scene change
+  this.render();             // force repaint
 }
 
   nextQuestion(fromStart=false){
