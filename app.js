@@ -374,11 +374,12 @@ class App {
     this.render();
   }
 
-  startRun(){
-    this.sfx.click();
-    this.nextQuestion(true);
-    this.setScene("play");
-  }
+startRun(){
+  this.sfx.click();
+  this.setScene("play");     // go to play FIRST (this clears old state)
+  this.nextQuestion(true);   // then load the first question
+  this.render();             // force paint
+}
 
   nextQuestion(fromStart=false){
     const q = chooseNextQuestion(this.save);
